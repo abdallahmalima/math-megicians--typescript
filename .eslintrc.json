@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "babelOptions": {
+      "configFile": "./babel.config.json"
+    }
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended" // Add this line to extend TypeScript-specific rules
+  ],
+  "plugins": ["react", "@typescript-eslint"], // Add @typescript-eslint as a plugin
+  "rules": {
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }], // Update file extensions to include TypeScript
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "no-shadow": "off",
+    "import/extensions":"off",
+    "function-calc-no-invalid": 0
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*Slice.ts"], // Update file pattern to use .ts extension
+      "rules": { "no-param-reassign": ["error", { "props": false }] }
+    }
+  ],
+  "ignorePatterns": [
+    "dist/",
+    "build/"
+  ]
+}
