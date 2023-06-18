@@ -1,12 +1,21 @@
 import React from 'react';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import CalculatorPage from './pages/CalculatorPage';
+import QuotePage from './pages/QuotePage';
+import HomePage from './pages/HomePage';
+import NotFound from './pages/404';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>hello world</p>
-      </header>
+      <NavBar />
+      <Routes>
+        <Route path="/calculator" element={<CalculatorPage />} />
+        <Route path="/quotes" element={<QuotePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
